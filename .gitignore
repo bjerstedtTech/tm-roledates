@@ -1,0 +1,6 @@
+*.csv
+token.pickle
+client_secret.json
+tm-read-*.json
+.ropeproject/
+credentials.json
