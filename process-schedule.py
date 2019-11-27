@@ -13,7 +13,7 @@ import re
 from datetime import date, datetime
 
 # Main parameters
-cutoff = date.fromisoformat('2019-11-05')
+cutoff = date.fromisoformat('2019-11-20')
 roles = ['TM', 'SP', 'TT', 'GE', 'E', 'GR', 'IT', 'CJ', '1M']
 
 # If modifying these scopes, delete the file token.pickle.
