@@ -13,7 +13,7 @@ import re
 from datetime import date, datetime
 
 # Main parameters
-cutoff = date.fromisoformat('2019-11-20')
+cutoff = date.fromisoformat('2019-12-24')
 roles = ['TM', 'SP', 'TT', 'GE', 'E', 'GR', 'IT', 'CJ', '1M']
 
 # If modifying these scopes, delete the file token.pickle.
@@ -23,7 +23,7 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 # SAMPLE_SPREADSHEET_ID = '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms'
 # RANGE_FORMAT = 'Class Data!A2:E'
 SPREADSHEET_ID = '1xD1dnISQGhi2xDriT4kG-ABvcZMO-8vCaRclGn3LjsY'
-RANGE_FORMAT = 'Schedule 2019!A1:BZ50'
+RANGE_FORMAT = 'Schedule 2019!A1:AZ50'
 
 def main():
     """Shows basic usage of the Sheets API.
@@ -67,7 +67,7 @@ def main():
             
             # Extract (role, date) iterable -- ignoring empty or N/A rode
             rd = filter(lambda p: p[0] and not re.match(r'(?i)N/A', p[0]),
-                [(row[i+1], dates[i]) for i in range(0, len(dates))])
+                [(row[i+1], dates[i]) for i in range(0, len(dates)-1)])
 
             # Expand multiple roles
             rd = [(list(filter(lambda r: re.match(r'\w+', r), re.split(r'\W+', p[0]))), p[1]) for p in rd]
