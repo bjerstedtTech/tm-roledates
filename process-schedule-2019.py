@@ -13,7 +13,7 @@ import re
 from datetime import date, datetime
 
 # Main parameters
-cutoff = date.fromisoformat('2020-02-04')
+cutoff = date.fromisoformat('2019-12-17')
 roles = ['TM', 'SP', 'TT', 'GE', 'E', 'GR', 'IT', 'CJ', '1M']
 
 # If modifying these scopes, delete the file token.pickle.
@@ -23,12 +23,7 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 # SAMPLE_SPREADSHEET_ID = '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms'
 # RANGE_FORMAT = 'Class Data!A2:E'
 SPREADSHEET_ID = '1xD1dnISQGhi2xDriT4kG-ABvcZMO-8vCaRclGn3LjsY'
-RANGE_FORMAT = 'Schedule 2020!A1:AZ50'
-OUTFILE = 'roledates2020.csv'
-
-def getService():
-    """Opens a service """
-
+RANGE_FORMAT = 'Schedule 2019!A1:AZ50'
 
 def main():
     """Shows basic usage of the Sheets API.
@@ -62,7 +57,7 @@ def main():
     values = result.get('values', [])
 
     dates = list(filter(lambda d: d <= cutoff, [datetime.strptime(d, '%d-%b-%Y').date() for d in values[0][1:]]))
-    with open(OUTFILE, 'w') as wf:
+    with open('roledates.csv', 'w') as wf:
         writer = csv.DictWriter(wf, ["Name"]+roles)
         writer.writeheader()
 

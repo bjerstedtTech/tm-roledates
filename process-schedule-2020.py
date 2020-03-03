@@ -26,10 +26,6 @@ SPREADSHEET_ID = '1xD1dnISQGhi2xDriT4kG-ABvcZMO-8vCaRclGn3LjsY'
 RANGE_FORMAT = 'Schedule 2020!A1:AZ50'
 OUTFILE = 'roledates2020.csv'
 
-def getService():
-    """Opens a service """
-
-
 def main():
     """Shows basic usage of the Sheets API.
     Prints values from a sample spreadsheet.
